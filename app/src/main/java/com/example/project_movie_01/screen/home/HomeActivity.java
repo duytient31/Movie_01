@@ -1,9 +1,6 @@
 package com.example.project_movie_01.screen.home;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
 
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;

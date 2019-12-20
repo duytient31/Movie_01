@@ -3,9 +3,6 @@ package com.example.project_movie_01.screen.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
 
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;
