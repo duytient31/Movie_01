@@ -1,4 +1,4 @@
-package com.example.project_movie_01.screen.favourtive;
+package com.example.project_movie_01.screen.home;
 
 import android.content.Intent;
 import android.view.View;
@@ -8,13 +8,8 @@ import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseFragment;
 import com.example.project_movie_01.screen.search.SearchActivity;
 
-public class FavourtiveFragment extends BaseFragment implements View.OnClickListener {
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private ImageView mImageViewSearch;
-
-    @Override
-    protected void registerListener() {
-        mImageViewSearch.setOnClickListener(this);
-    }
 
     @Override
     protected void initComponents(View view) {
@@ -22,8 +17,13 @@ public class FavourtiveFragment extends BaseFragment implements View.OnClickList
     }
 
     @Override
+    protected void registerListener() {
+        mImageViewSearch.setOnClickListener(this);
+    }
+
+    @Override
     protected int getLayoutId() {
-        return R.layout.fragment_favourtive;
+        return R.layout.fragment_home;
     }
 
     @Override
@@ -42,4 +42,3 @@ public class FavourtiveFragment extends BaseFragment implements View.OnClickList
         startActivity(intent);
     }
 }
-

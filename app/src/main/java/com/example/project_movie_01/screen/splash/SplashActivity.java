@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;
-import com.example.project_movie_01.screen.home.HomeActivity;
+import com.example.project_movie_01.screen.main.MainActivity;
 
 public class SplashActivity extends BaseActivity {
 
@@ -18,7 +18,7 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                Intent intent = MainActivity.getIntent(getApplication());
                 startActivity(intent);
                 finish();
             }
