@@ -18,9 +18,18 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view,
+                              @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initComponents(view);
+        registerListener();
+    }
+
+    protected abstract void initComponents(View view);
+
     protected abstract void registerListener();
 
-    protected abstract void initComponents();
 
     protected abstract int getLayoutId();
 }

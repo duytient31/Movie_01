@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Project_Movie_01</string>
     <string name="text_movie_play">MOVIE PLAY</string>
+    <string name="text_fourvite">Fourvite</string>
+    <string name="text_home">Home</string>
+    <string name="text_option">Option</string>
+    <string name="text_search">Search</string>
+    <string name="text_film_dictionary">Film Dictionary</string>
+    <string name="text_fovurtive">Fovurtive</string>
+    <string name="text_search_film">Search Film</string>
+    <string name="text_genres">Genres</string>
 </resources>
