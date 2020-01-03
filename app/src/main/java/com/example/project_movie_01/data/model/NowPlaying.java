@@ -1,6 +1,6 @@
 package com.example.project_movie_01.data.model;
 
-public class Popular {
+public class NowPlaying {
     private String mPopularity;
     private String mVoteCount;
     private String mPosterPath;
@@ -10,11 +10,11 @@ public class Popular {
     private String mOverview;
     private String mReleaseDate;
 
-    public Popular() {
+    public NowPlaying() {
     }
 
-    public Popular(String popularity, String voteCount, String posterPath
-            , String id, String title, String voteAverage, String overview, String releaseDate) {
+    public NowPlaying(String popularity, String voteCount,
+                      String posterPath, String id, String title, String voteAverage, String overview, String releaseDate) {
         mPopularity = popularity;
         mVoteCount = voteCount;
         mPosterPath = posterPath;
