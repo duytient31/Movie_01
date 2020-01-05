@@ -1,6 +1,9 @@
 package com.example.project_movie_01.data.model;
 
-public class Popular {
+import com.example.project_movie_01.constant.Constant;
+import com.example.project_movie_01.utils.StringUtils;
+
+public class NowPlayingMovie {
     private String mPopularity;
     private String mVoteCount;
     private String mPosterPath;
@@ -10,11 +13,11 @@ public class Popular {
     private String mOverview;
     private String mReleaseDate;
 
-    public Popular() {
+    public NowPlayingMovie() {
     }
 
-    public Popular(String popularity, String voteCount, String posterPath
-            , String id, String title, String voteAverage, String overview, String releaseDate) {
+    public NowPlayingMovie(String popularity, String voteCount,
+                           String posterPath, String id, String title, String voteAverage, String overview, String releaseDate) {
         mPopularity = popularity;
         mVoteCount = voteCount;
         mPosterPath = posterPath;
@@ -23,6 +26,10 @@ public class Popular {
         mVoteAverage = voteAverage;
         mOverview = overview;
         mReleaseDate = releaseDate;
+    }
+
+    public String getImageFullUrl() {
+        return StringUtils.formatFromBaseURL(Constant.BASE_IMAGE_URL, mPosterPath);
     }
 
     public String getPopularity() {

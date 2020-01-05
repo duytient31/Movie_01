@@ -2,10 +2,10 @@ package com.example.project_movie_01.constant;
 
 import androidx.annotation.StringDef;
 
-@StringDef({PopularEntity.RESULTS, PopularEntity.POPULARITY, PopularEntity.VOTE_COUNT,
-        PopularEntity.POSTER_PATH, PopularEntity.ID, PopularEntity.TITLE,
-        PopularEntity.VOTE_AVERAGE, PopularEntity.OVERVIEW, PopularEntity.RELEASE_DATE})
-public @interface PopularEntity {
+@StringDef({NowPlayingMovieEntity.RESULTS, NowPlayingMovieEntity.POPULARITY, NowPlayingMovieEntity.VOTE_COUNT,
+        NowPlayingMovieEntity.POSTER_PATH, NowPlayingMovieEntity.ID, NowPlayingMovieEntity.TITLE,
+        NowPlayingMovieEntity.VOTE_AVERAGE, NowPlayingMovieEntity.OVERVIEW, NowPlayingMovieEntity.RELEASE_DATE})
+public @interface NowPlayingMovieEntity {
     String RESULTS = "results";
     String POPULARITY = "popularity";
     String VOTE_COUNT = "vote_count";

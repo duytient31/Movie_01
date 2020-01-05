@@ -18,7 +18,6 @@ public class OptionFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
-
     }
 
     @Override
@@ -27,7 +26,6 @@ public class OptionFragment extends BaseFragment {
 
     @Override
     protected void initComponents(View view) {
-
     }
 
     @Override
