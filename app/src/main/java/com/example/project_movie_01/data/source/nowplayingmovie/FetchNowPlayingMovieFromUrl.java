@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 import com.example.project_movie_01.constant.Constant;
 import com.example.project_movie_01.constant.PopularMovieEntity;
-import com.example.project_movie_01.data.MoviesMovieDataSource;
+import com.example.project_movie_01.data.MoviesDataSource;
 import com.example.project_movie_01.data.model.NowPlayingMovie;
 
 import org.json.JSONArray;
@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FetchNowPlayingMovieFromUrl extends AsyncTask<String, Void, List<NowPlayingMovie>> {
-    private MoviesMovieDataSource.OnFetchMovieListener<NowPlayingMovie> mListener;
+    private MoviesDataSource.OnFetchMovieListener<NowPlayingMovie> mListener;
     private Exception mException;
 
-    public FetchNowPlayingMovieFromUrl(MoviesMovieDataSource.OnFetchMovieListener<NowPlayingMovie> listener) {
+    public FetchNowPlayingMovieFromUrl(MoviesDataSource.OnFetchMovieListener<NowPlayingMovie> listener) {
         mListener = listener;
     }
 
@@ -47,15 +47,15 @@ public class FetchNowPlayingMovieFromUrl extends AsyncTask<String, Void, List<No
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = (JSONObject) jsonArray.get(i);
             String popularity = jsonObject.getString(PopularMovieEntity.POPULARITY);
-            String vote_count = jsonObject.getString(PopularMovieEntity.VOTE_COUNT);
-            String poster_path = jsonObject.getString(PopularMovieEntity.POSTER_PATH);
+            String votecount = jsonObject.getString(PopularMovieEntity.VOTE_COUNT);
+            String posterpath = jsonObject.getString(PopularMovieEntity.POSTER_PATH);
             String id = jsonObject.getString(PopularMovieEntity.ID);
             String title = jsonObject.getString(PopularMovieEntity.TITLE);
-            String voteAverage = jsonObject.getString(PopularMovieEntity.VOTE_AVERAGE);
+            String voteaverage = jsonObject.getString(PopularMovieEntity.VOTE_AVERAGE);
             String overview = jsonObject.getString(PopularMovieEntity.OVERVIEW);
-            String release_date = jsonObject.getString(PopularMovieEntity.RELEASE_DATE);
-            NowPlayingMovie nowPlaying = new NowPlayingMovie(popularity, vote_count, poster_path, id
-                    , title, voteAverage, overview, release_date);
+            String releasedate = jsonObject.getString(PopularMovieEntity.RELEASE_DATE);
+            NowPlayingMovie nowPlaying = new NowPlayingMovie(popularity, votecount, posterpath, id
+                    , title, voteaverage, overview, releasedate);
             nowPlayings.add(nowPlaying);
         }
         return nowPlayings;

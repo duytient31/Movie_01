@@ -1,13 +1,13 @@
 package com.example.project_movie_01.screen.nowplaying;
 
-import com.example.project_movie_01.data.MoviesMovieDataSource;
+import com.example.project_movie_01.data.MoviesDataSource;
 import com.example.project_movie_01.data.model.NowPlayingMovie;
 import com.example.project_movie_01.data.repository.NowPlayingMovieReponsitory;
 
 import java.util.List;
 
 public class NowPlayingMoviePresenter implements NowPlayingMovieContract.presenter,
-        MoviesMovieDataSource.OnFetchMovieListener<NowPlayingMovie> {
+        MoviesDataSource.OnFetchMovieListener<NowPlayingMovie> {
     private NowPlayingMovieContract.view mView;
     private NowPlayingMovieReponsitory mNowPlayingMovieReponsitory;
 

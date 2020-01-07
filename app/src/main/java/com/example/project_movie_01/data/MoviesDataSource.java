@@ -2,7 +2,7 @@ package com.example.project_movie_01.data;
 
 import java.util.List;
 
-public interface MoviesMovieDataSource {
+public interface MoviesDataSource {
     public interface OnFetchMovieListener<T>{
         void onFetchMovieSuccess(List<T> data);
 
@@ -10,6 +10,6 @@ public interface MoviesMovieDataSource {
     }
 
     public interface FetchMovieDataSource {
-        void getMovies(MoviesMovieDataSource.OnFetchMovieListener listener);
+        void getMovies(MoviesDataSource.OnFetchMovieListener listener);
     }
 }

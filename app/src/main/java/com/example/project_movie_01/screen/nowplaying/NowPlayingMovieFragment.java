@@ -23,7 +23,7 @@ public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingM
 
     @Override
     protected void initComponents(View view) {
-        mRecyclerNowPlaying = view.findViewById(R.id.recycler_now_playing);
+        mRecyclerNowPlaying = view.findViewById(R.id.recycler_nowplaying_movie);
         mNowPlayingMovieAdapter = new NowPlayingMovieAdapter(this);
         mRecyclerNowPlaying.setAdapter(mNowPlayingMovieAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),

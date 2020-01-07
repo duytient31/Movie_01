@@ -1,12 +1,12 @@
 package com.example.project_movie_01.data.source.nowplayingmovie;
 
-import com.example.project_movie_01.data.MoviesMovieDataSource;
+import com.example.project_movie_01.data.MoviesDataSource;
 import com.example.project_movie_01.utils.StringUtils;
 
-public class NowPlayingMovieDataSource implements MoviesMovieDataSource.FetchMovieDataSource {
+public class NowPlayingMovieDataSource implements MoviesDataSource.FetchMovieDataSource {
     private static NowPlayingMovieDataSource sInstance;
 
-    public NowPlayingMovieDataSource() {
+    private NowPlayingMovieDataSource() {
     }
 
     public static NowPlayingMovieDataSource getInstance() {
@@ -17,7 +17,7 @@ public class NowPlayingMovieDataSource implements MoviesMovieDataSource.FetchMov
     }
 
     @Override
-    public void getMovies(MoviesMovieDataSource.OnFetchMovieListener listener) {
+    public void getMovies(MoviesDataSource.OnFetchMovieListener listener) {
         FetchNowPlayingMovieFromUrl fetchNowPlayingMovieFromUrl = new FetchNowPlayingMovieFromUrl(listener);
         fetchNowPlayingMovieFromUrl.execute(StringUtils.getAPINowPlayingMovie());
     }

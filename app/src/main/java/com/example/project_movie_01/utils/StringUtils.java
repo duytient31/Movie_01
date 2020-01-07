@@ -15,5 +15,7 @@ public class StringUtils {
     public static String formatFromBaseURL(String baseImageUrl, String path) {
         return String.format("%s/%s", Constant.BASE_IMAGE_URL, path);
     }
-
+    public static String getAPIUpComingMovie() {
+        return String.format("%s%s%s", Constant.BASE_URL_MOVIE, Constant.URL_POPULAR_MOVIE, BuildConfig.API_KEY);
+    }
 }
