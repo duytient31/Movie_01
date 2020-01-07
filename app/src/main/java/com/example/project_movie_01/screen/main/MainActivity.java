@@ -12,6 +12,7 @@ import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;
 import com.example.project_movie_01.screen.favourtive.FavourtiveFragment;
 import com.example.project_movie_01.screen.home.HomeFragment;
+import com.example.project_movie_01.screen.nowplaying.NowPlayingMovieFragment;
 import com.example.project_movie_01.screen.option.OptionFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,6 +22,7 @@ public class MainActivity extends BaseActivity implements
     private HomeFragment mHomeFragment;
     private FavourtiveFragment mFavourtiveFragment;
     private OptionFragment mOptionFragment;
+    private NowPlayingMovieFragment mNowPlayingMovieFragment;
 
     @Override
     protected void registerListener() {
@@ -67,8 +69,10 @@ public class MainActivity extends BaseActivity implements
     }
 
     private void openHomeScreen() {
-        mHomeFragment = new HomeFragment();
-        addFragment(mHomeFragment);
+       /* mHomeFragment = new HomeFragment();
+        addFragment(mHomeFragment);*/
+        mNowPlayingMovieFragment = new NowPlayingMovieFragment();
+        addFragment(mNowPlayingMovieFragment);
     }
 
     private void addFragment(Fragment fragment) {
@@ -76,7 +80,7 @@ public class MainActivity extends BaseActivity implements
         fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack(null).commit();
     }
 
-    public static Intent getIntent(Context context){
+    public static Intent getIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         return intent;
     }

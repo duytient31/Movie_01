@@ -8,6 +8,8 @@ public class Constant {
     public static final int READ_TIME_OUT = 5000;
     public static final String BREAK_LINE = "\n";
     public String API_KEY = BuildConfig.API_KEY;
-    public static final String URL_POPULAR = "movie/popular?api_key=";
-    public static final String BASE_URL = "https://api.themoviedb.org/3/";
+    public static final String URL_POPULAR_MOVIE = "movie/popular?api_key=";
+    public static final String URL_NOW_PLAYING_MOVIE = "movie/now_playing?api_key=";
+    public static final String BASE_URL_MOVIE = "https://api.themoviedb.org/3/";
+    public static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w300";
 }

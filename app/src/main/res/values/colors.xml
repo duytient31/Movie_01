@@ -8,5 +8,10 @@
     <color name="color_green">#00BFA5</color>
     <color name="color_green_2">#A5D6A7</color>
     <color name="color_black">#000000</color>
+    <color name="color_yellow">#FFFF00</color>
+    <color name="color_orange">#ffa500</color>
+    <color name="color_backgroud">#0C0D0F</color>
+    <color name="color_purple">#a020f0</color>
+    <color name="color_gray">#3C3B3B</color>
+    <color name="color_while">#FFFFFF</color>
 </resources>
-

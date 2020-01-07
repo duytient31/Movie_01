@@ -5,10 +5,13 @@
     <string name="text_home">Home</string>
     <string name="text_option">Option</string>
     <string name="text_search">Search</string>
-    <string name="text_film_dictionary">Film Dictionary</string>
+    <string name="text_movie_dictionary">Film Dictionary</string>
     <string name="text_fovurtive">Fovurtive</string>
     <string name="text_search_film">Search Film</string>
     <string name="text_genres">Genres</string>
-    <string name="tex_title_film">Title_film</string>
+    <string name="tex_title_movie">Title_Movie</string>
     <string name="text_upcoming">UpComing</string>
+    <string name="text_release_date">Release_Date</string>
+    <string name="text_default_vote">0.0</string>
+    <string name="text_popularity">Popularity</string>
 </resources>
