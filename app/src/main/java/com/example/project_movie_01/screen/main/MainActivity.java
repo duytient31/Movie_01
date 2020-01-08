@@ -12,8 +12,9 @@ import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;
 import com.example.project_movie_01.screen.favourtive.FavourtiveFragment;
 import com.example.project_movie_01.screen.home.HomeFragment;
-import com.example.project_movie_01.screen.nowplaying.NowPlayingMovieFragment;
+import com.example.project_movie_01.screen.home.genres.nowplaying.NowPlayingMovieFragment;
 import com.example.project_movie_01.screen.option.OptionFragment;
+import com.example.project_movie_01.screen.home.genres.popular.PopularMovieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends BaseActivity implements
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity implements
     private FavourtiveFragment mFavourtiveFragment;
     private OptionFragment mOptionFragment;
     private NowPlayingMovieFragment mNowPlayingMovieFragment;
+    private PopularMovieFragment mPopularMovieFragment;
 
     @Override
     protected void registerListener() {
@@ -64,12 +66,14 @@ public class MainActivity extends BaseActivity implements
     }
 
     private void openFourtiveSceen() {
-        mFavourtiveFragment = new FavourtiveFragment();
-        addFragment(mFavourtiveFragment);
+      /*  mFavourtiveFragment = new FavourtiveFragment();
+        addFragment(mFavourtiveFragment);*/
+        mPopularMovieFragment = new PopularMovieFragment();
+        addFragment(mPopularMovieFragment);
     }
 
     private void openHomeScreen() {
-       /* mHomeFragment = new HomeFragment();
+        /*mHomeFragment = new HomeFragment();
         addFragment(mHomeFragment);*/
         mNowPlayingMovieFragment = new NowPlayingMovieFragment();
         addFragment(mNowPlayingMovieFragment);

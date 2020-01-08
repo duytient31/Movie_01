@@ -1,4 +1,4 @@
-package com.example.project_movie_01.screen.nowplaying;
+package com.example.project_movie_01.screen.home.genres.nowplaying;
 
 import android.content.Intent;
 import android.view.View;
@@ -9,34 +9,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseFragment;
-import com.example.project_movie_01.data.model.NowPlayingMovie;
-import com.example.project_movie_01.data.repository.NowPlayingMovieReponsitory;
+import com.example.project_movie_01.screen.home.genres.GenresAdapter;
+import com.example.project_movie_01.data.model.Genres;
+import com.example.project_movie_01.data.repository.GenresReponsitory;
 import com.example.project_movie_01.screen.search.SearchActivity;
 
 import java.util.List;
 
 public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingMovieContract.
-        view, NowPlayingMovieAdapter.OnClickNowPlayingListener {
+        view, GenresAdapter.OnClickNowPlayingListener {
     private RecyclerView mRecyclerNowPlaying;
-    private NowPlayingMovieAdapter mNowPlayingMovieAdapter;
+    private GenresAdapter mGenresAdapter;
     private NowPlayingMoviePresenter mNowPlayingMoviePresenter;
 
     @Override
     protected void initComponents(View view) {
         mRecyclerNowPlaying = view.findViewById(R.id.recycler_nowplaying_movie);
-        mNowPlayingMovieAdapter = new NowPlayingMovieAdapter(this);
-        mRecyclerNowPlaying.setAdapter(mNowPlayingMovieAdapter);
+        mGenresAdapter = new GenresAdapter(this);
+        mRecyclerNowPlaying.setAdapter(mGenresAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
         mRecyclerNowPlaying.setLayoutManager(layoutManager);
 
-        mNowPlayingMoviePresenter = new NowPlayingMoviePresenter(this, NowPlayingMovieReponsitory.getInstance());
-        mNowPlayingMoviePresenter.getNowPlayings();
+        mNowPlayingMoviePresenter = new NowPlayingMoviePresenter(this, GenresReponsitory.getInstance());
+        mNowPlayingMoviePresenter.getNowPlayingMovie();
     }
 
     @Override
     protected void registerListener() {
-
     }
 
     @Override
@@ -45,18 +45,18 @@ public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingM
     }
 
     @Override
-    public void onNowPlayingSucces(List<NowPlayingMovie> nowPlayings) {
-        mNowPlayingMovieAdapter.setData(nowPlayings);
-        mNowPlayingMovieAdapter.notifyDataSetChanged();
+    public void onNowPlayingMovieSucces(List<Genres> nowPlayings) {
+        mGenresAdapter.setData(nowPlayings);
+        mGenresAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onNowPlayingFailure(String message) {
+    public void onNowPlayingMovieFailure(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onClickNowPlayingListener(NowPlayingMovie nowPlaying) {
+    public void onClickNowPlayingListener(Genres nowPlaying) {
         Intent intent = SearchActivity.getIntent(getActivity());
         startActivity(intent);
     }

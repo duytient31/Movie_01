@@ -1,4 +1,4 @@
-package com.example.project_movie_01.screen.nowplaying;
+package com.example.project_movie_01.screen.home.genres;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,23 +11,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.project_movie_01.R;
-import com.example.project_movie_01.data.model.NowPlayingMovie;
+import com.example.project_movie_01.data.model.Genres;
+
 import java.util.List;
 
-public class NowPlayingMovieAdapter extends RecyclerView.Adapter<NowPlayingMovieAdapter.NowPlayingViewHolder> {
-    private List<NowPlayingMovie> mData;
+public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.NowPlayingViewHolder> {
+    private List<Genres> mData;
     private LayoutInflater mLayoutInflater;
     private OnClickNowPlayingListener mOnClickNowPlayingListener;
+    private OnClickPoplarsListener mOnClickPoplarsListener;
 
-    public void setData(List<NowPlayingMovie> data) {
+    public void setData(List<Genres> data) {
         mData = data;
     }
 
-    public NowPlayingMovieAdapter(OnClickNowPlayingListener onClickNowPlayingListener) {
+    GenresAdapter(OnClickPoplarsListener onClickPoplarsListener) {
+        mOnClickPoplarsListener = onClickPoplarsListener;
+    }
+
+    public GenresAdapter(OnClickNowPlayingListener onClickNowPlayingListener) {
         mOnClickNowPlayingListener = onClickNowPlayingListener;
     }
 
-    public NowPlayingMovieAdapter(List<NowPlayingMovie> data) {
+    public GenresAdapter(List<Genres> data) {
         mData = data;
     }
 
@@ -53,12 +59,13 @@ public class NowPlayingMovieAdapter extends RecyclerView.Adapter<NowPlayingMovie
     }
 
     public class NowPlayingViewHolder extends RecyclerView.ViewHolder {
-        TextView mTextTiTleFilm;
+        TextView mTextTiTleMovie;
         TextView mTextPopularity;
         TextView mTextVoteAverage;
         TextView mTextReleaseDate;
         ImageView mImagePosterPath;
-        NowPlayingMovie mNowPlaying;
+        Genres mNowPlaying;
+        Genres mPopular;
 
         public NowPlayingViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,30 +78,35 @@ public class NowPlayingMovieAdapter extends RecyclerView.Adapter<NowPlayingMovie
                 @Override
                 public void onClick(View v) {
                     mOnClickNowPlayingListener.onClickNowPlayingListener(mNowPlaying);
+                    mOnClickPoplarsListener.onPoplarsClickListener(mPopular);
                 }
             });
         }
 
         private void initComponents() {
-            mTextTiTleFilm = itemView.findViewById(R.id.text_title_film);
+            mTextTiTleMovie = itemView.findViewById(R.id.text_title_film);
             mTextPopularity = itemView.findViewById(R.id.text_popularity);
             mTextVoteAverage = itemView.findViewById(R.id.text_vote_average);
             mTextReleaseDate = itemView.findViewById(R.id.text_release_date);
             mImagePosterPath = itemView.findViewById(R.id.image_poster_path);
         }
 
-        public void display(NowPlayingMovie nowPlaying) {
+        public void display(Genres nowPlaying) {
             String url = nowPlaying.getImageFullUrl();
             Glide.with(itemView.getContext()).load(url).
                     placeholder(R.drawable.loading_shape).into(mImagePosterPath);
-            mTextPopularity.setText(nowPlaying.getTitle());
+            mTextTiTleMovie.setText(nowPlaying.getTitle());
             mTextPopularity.setText(nowPlaying.getPopularity());
             mTextVoteAverage.setText(nowPlaying.getVoteAverage());
             mTextReleaseDate.setText(nowPlaying.getReleaseDate());
         }
     }
 
-    interface OnClickNowPlayingListener {
-        void onClickNowPlayingListener(NowPlayingMovie nowPlaying);
+    public interface OnClickNowPlayingListener {
+        void onClickNowPlayingListener(Genres nowPlaying);
+    }
+
+    public interface OnClickPoplarsListener {
+        void onPoplarsClickListener(Genres popular);
     }
 }

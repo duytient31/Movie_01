@@ -3,7 +3,7 @@ package com.example.project_movie_01.data.model;
 import com.example.project_movie_01.constant.Constant;
 import com.example.project_movie_01.utils.StringUtils;
 
-public class NowPlayingMovie {
+public class Genres {
     private String mPopularity;
     private String mVoteCount;
     private String mPosterPath;
@@ -13,11 +13,11 @@ public class NowPlayingMovie {
     private String mOverview;
     private String mReleaseDate;
 
-    public NowPlayingMovie() {
+    public Genres() {
     }
 
-    public NowPlayingMovie(String popularity, String voteCount,
-                           String posterPath, String id, String title, String voteAverage, String overview, String releaseDate) {
+    public Genres(String popularity, String voteCount, String posterPath
+            , String id, String title, String voteAverage, String overview, String releaseDate) {
         mPopularity = popularity;
         mVoteCount = voteCount;
         mPosterPath = posterPath;
