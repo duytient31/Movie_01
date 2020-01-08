@@ -17,7 +17,7 @@ import com.example.project_movie_01.screen.search.SearchActivity;
 import java.util.List;
 
 public class PopularMovieFragment extends BaseFragment implements
-        PopularMovieContract.View, GenresAdapter.OnClickPoplarsListener {
+        PopularMovieContract.View, GenresAdapter.OnClickGenresListener {
     private RecyclerView mRecyclerViewPopular;
     private GenresAdapter mGenresAdapter;
     private PopularMoviePresenter mPopularMoviePresenter;
@@ -58,7 +58,7 @@ public class PopularMovieFragment extends BaseFragment implements
     }
 
     @Override
-    public void onPoplarsClickListener(Genres popular) {
+    public void onClickGenresListener(Genres genres) {
         Intent intent = SearchActivity.getIntent(getActivity());
         startActivity(intent);
     }
