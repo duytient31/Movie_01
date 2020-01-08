@@ -4,17 +4,22 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseFragment;
+import com.example.project_movie_01.data.model.Genres;
 import com.example.project_movie_01.screen.search.SearchActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener{
     private ImageView mImageViewSearch;
 
     @Override
     protected void initComponents(View view) {
-        mImageViewSearch = view.findViewById(R.id.image_search);
-    }
+        mImageViewSearch = view.findViewById(R.id.image_search); }
 
     @Override
     protected void registerListener() {

@@ -14,4 +14,6 @@
     <color name="color_purple">#a020f0</color>
     <color name="color_gray">#3C3B3B</color>
     <color name="color_while">#FFFFFF</color>
+    <color name="color_indigo">#9fa8da</color>
+    <color name="color_inigo_dark">#6f79a8</color>
 </resources>

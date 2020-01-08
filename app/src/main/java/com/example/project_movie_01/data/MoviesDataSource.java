@@ -8,12 +8,4 @@ public interface MoviesDataSource {
 
         void onFetchMovieFailure(Exception e);
     }
-
-    public interface FetchMovieDataSource {
-        void getMovies(MoviesDataSource.OnFetchMovieListener listener);
-    }
-
-    public interface FetchPopularDataSource {
-        void getPopular(MoviesDataSource.OnFetchMovieListener listener);
-    }
 }

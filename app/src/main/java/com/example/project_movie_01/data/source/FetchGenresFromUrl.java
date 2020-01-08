@@ -56,12 +56,12 @@ public class FetchGenresFromUrl extends AsyncTask<String, Void, List<Genres>> {
     }
 
     @Override
-    protected void onPostExecute(List<Genres> nowPlayings) {
+    protected void onPostExecute(List<Genres> genres) {
         if (mListener == null) {
             return;
         }
         if (mException == null) {
-            mListener.onFetchMovieSuccess(nowPlayings);
+            mListener.onFetchMovieSuccess(genres);
         } else {
             mListener.onFetchMovieFailure(mException);
         }

@@ -3,8 +3,7 @@ package com.example.project_movie_01.data.source;
 import com.example.project_movie_01.data.MoviesDataSource;
 import com.example.project_movie_01.utils.StringUtils;
 
-public class GenresDataSource implements MoviesDataSource.FetchMovieDataSource,
-        MoviesDataSource.FetchPopularDataSource {
+public class GenresDataSource implements MoviesDataSource {
     private static GenresDataSource sInstance;
 
     private GenresDataSource() {
@@ -17,15 +16,23 @@ public class GenresDataSource implements MoviesDataSource.FetchMovieDataSource,
         return sInstance;
     }
 
-    @Override
-    public void getMovies(MoviesDataSource.OnFetchMovieListener listener) {
+    public void getNowPlaying(MoviesDataSource.OnFetchMovieListener listener) {
         FetchGenresFromUrl fetchGenresFromUrl = new FetchGenresFromUrl(listener);
         fetchGenresFromUrl.execute(StringUtils.getAPINowPlayingMovie());
     }
 
-    @Override
     public void getPopular(MoviesDataSource.OnFetchMovieListener listener) {
         FetchGenresFromUrl fetchGenresFromUrl = new FetchGenresFromUrl(listener);
         fetchGenresFromUrl.execute(StringUtils.getAPIPopularMovie());
+    }
+
+    public void getTopRated(MoviesDataSource.OnFetchMovieListener listener) {
+        FetchGenresFromUrl fetchGenresFromUrl = new FetchGenresFromUrl(listener);
+        fetchGenresFromUrl.execute(StringUtils.getAPITopRateMovie());
+    }
+
+    public void getUpcoming(MoviesDataSource.OnFetchMovieListener listener) {
+        FetchGenresFromUrl fetchGenresFromUrl = new FetchGenresFromUrl(listener);
+        fetchGenresFromUrl.execute(StringUtils.getAPIUpComingMovie());
     }
 }
