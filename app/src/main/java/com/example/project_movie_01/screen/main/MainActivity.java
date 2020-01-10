@@ -10,22 +10,16 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.project_movie_01.R;
 import com.example.project_movie_01.base.BaseActivity;
-import com.example.project_movie_01.screen.favourtive.FavourtiveFragment;
 import com.example.project_movie_01.screen.home.HomeFragment;
-import com.example.project_movie_01.screen.home.genres.nowplaying.NowPlayingMovieFragment;
 import com.example.project_movie_01.screen.home.genres.toprated.TopRatedMovieFragment;
 import com.example.project_movie_01.screen.option.OptionFragment;
-import com.example.project_movie_01.screen.home.genres.popular.PopularMovieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends BaseActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView mBottomNavigationView;
     private HomeFragment mHomeFragment;
-    private FavourtiveFragment mFavourtiveFragment;
     private OptionFragment mOptionFragment;
-    private NowPlayingMovieFragment mNowPlayingMovieFragment;
-    private PopularMovieFragment mPopularMovieFragment;
     private TopRatedMovieFragment mTopRatedMovieFragment;
 
     @Override
@@ -73,10 +67,8 @@ public class MainActivity extends BaseActivity implements
     }
 
     private void openHomeScreen() {
-        /*mHomeFragment = new HomeFragment();
-        addFragment(mHomeFragment);*/
-        mNowPlayingMovieFragment = new NowPlayingMovieFragment();
-        addFragment(mNowPlayingMovieFragment);
+        mHomeFragment = new HomeFragment();
+        addFragment(mHomeFragment);
     }
 
     private void addFragment(Fragment fragment) {

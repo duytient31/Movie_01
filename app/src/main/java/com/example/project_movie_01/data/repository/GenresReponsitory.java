@@ -31,6 +31,6 @@ public class GenresReponsitory {
     }
 
     public void getUpComingMovie(MoviesDataSource.OnFetchMovieListener listener) {
-        mGenresDataSource.getTopRatedMovieDataSource(listener);
+        mGenresDataSource.getUpcoming(listener);
     }
 }

@@ -12,15 +12,17 @@ import com.example.project_movie_01.base.BaseFragment;
 import com.example.project_movie_01.screen.home.genres.GenresAdapter;
 import com.example.project_movie_01.data.model.Genres;
 import com.example.project_movie_01.data.repository.GenresReponsitory;
+import com.example.project_movie_01.screen.home.genres.GenresContract;
+import com.example.project_movie_01.screen.home.genres.GenresPresenter;
 import com.example.project_movie_01.screen.search.SearchActivity;
 
 import java.util.List;
 
-public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingMovieContract.
+public class NowPlayingMovieFragment extends BaseFragment implements GenresContract.
         view, GenresAdapter.OnClickGenresListener {
     private RecyclerView mRecyclerNowPlaying;
     private GenresAdapter mGenresAdapter;
-    private NowPlayingMoviePresenter mNowPlayingMoviePresenter;
+    private GenresPresenter mGenresPresenter;
 
     @Override
     protected void initComponents(View view) {
@@ -30,9 +32,8 @@ public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingM
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
         mRecyclerNowPlaying.setLayoutManager(layoutManager);
-
-        mNowPlayingMoviePresenter = new NowPlayingMoviePresenter(this, GenresReponsitory.getInstance());
-        mNowPlayingMoviePresenter.getNowPlayingMovie();
+        mGenresPresenter = new GenresPresenter(this, GenresReponsitory.getInstance());
+        mGenresPresenter.getNowPlayingMovie();
     }
 
     @Override
@@ -45,19 +46,19 @@ public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingM
     }
 
     @Override
-    public void onNowPlayingMovieSucces(List<Genres> nowPlayings) {
-        mGenresAdapter.setData(nowPlayings);
+    public void onClickGenresListener(Genres nowPlaying) {
+        Intent intent = SearchActivity.getIntent(getActivity());
+        startActivity(intent);
+    }
+
+    @Override
+    public void onGenresSuccess(List<Genres> genres) {
+        mGenresAdapter.setData(genres);
         mGenresAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onNowPlayingMovieFailure(String message) {
+    public void onGenresFailure(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onClickGenresListener(Genres nowPlaying) {
-        Intent intent = SearchActivity.getIntent(getActivity());
-        startActivity(intent);
     }
 }

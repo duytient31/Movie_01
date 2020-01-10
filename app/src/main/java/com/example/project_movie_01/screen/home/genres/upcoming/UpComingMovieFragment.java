@@ -12,17 +12,17 @@ import com.example.project_movie_01.base.BaseFragment;
 import com.example.project_movie_01.data.model.Genres;
 import com.example.project_movie_01.data.repository.GenresReponsitory;
 import com.example.project_movie_01.screen.home.genres.GenresAdapter;
-import com.example.project_movie_01.screen.home.genres.toprated.TopRatedMovieContract;
-import com.example.project_movie_01.screen.home.genres.toprated.TopRatedMoviePresenter;
+import com.example.project_movie_01.screen.home.genres.GenresContract;
+import com.example.project_movie_01.screen.home.genres.GenresPresenter;
 import com.example.project_movie_01.screen.search.SearchActivity;
 
 import java.util.List;
 
 public class UpComingMovieFragment extends BaseFragment implements
-        GenresAdapter.OnClickGenresListener, UpComingContract.view {
+        GenresAdapter.OnClickGenresListener, GenresContract.view {
     private RecyclerView mRecyclerUpComingMovie;
     private GenresAdapter mGenresAdapter;
-    private UpComingPresenter mUpComingPresenter;
+    private GenresPresenter mGenresPresenter;
 
     @Override
     protected void initComponents(View view) {
@@ -33,8 +33,9 @@ public class UpComingMovieFragment extends BaseFragment implements
                 LinearLayoutManager.VERTICAL,
                 false);
         mRecyclerUpComingMovie.setLayoutManager(linearLayoutManager);
-        mUpComingPresenter = new UpComingPresenter(GenresReponsitory.getInstance(), this);
-        mUpComingPresenter.getUpComingMovie();
+        mGenresPresenter = new GenresPresenter(this, GenresReponsitory.
+                getInstance());
+        mGenresPresenter.getUpComingMovie();
     }
 
     @Override
@@ -53,13 +54,13 @@ public class UpComingMovieFragment extends BaseFragment implements
     }
 
     @Override
-    public void onGetUpComingMovieSuccess(List<Genres> genres) {
+    public void onGenresSuccess(List<Genres> genres) {
         mGenresAdapter.setData(genres);
         mGenresAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onGetUpComingMovieFailure(String message) {
+    public void onGenresFailure(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -12,15 +12,17 @@ import com.example.project_movie_01.base.BaseFragment;
 import com.example.project_movie_01.data.model.Genres;
 import com.example.project_movie_01.data.repository.GenresReponsitory;
 import com.example.project_movie_01.screen.home.genres.GenresAdapter;
+import com.example.project_movie_01.screen.home.genres.GenresContract;
+import com.example.project_movie_01.screen.home.genres.GenresPresenter;
 import com.example.project_movie_01.screen.search.SearchActivity;
 
 import java.util.List;
 
 public class TopRatedMovieFragment extends BaseFragment implements GenresAdapter.OnClickGenresListener
-        , TopRatedMovieContract.view {
+        , GenresContract.view {
     private RecyclerView mRecyclerViewTopRated;
     private GenresAdapter mGenresAdapter;
-    private TopRatedMoviePresenter mTopRatedMoviePresenter;
+    private GenresPresenter mGenresPresenter;
 
     @Override
     protected void initComponents(View view) {
@@ -31,9 +33,9 @@ public class TopRatedMovieFragment extends BaseFragment implements GenresAdapter
                 LinearLayoutManager.VERTICAL,
                 false);
         mRecyclerViewTopRated.setLayoutManager(linearLayoutManager);
-        mTopRatedMoviePresenter = new TopRatedMoviePresenter(
-                GenresReponsitory.getInstance(), this);
-        mTopRatedMoviePresenter.getTopRatedMovie();
+        mGenresPresenter = new GenresPresenter(this, GenresReponsitory.
+                getInstance());
+        mGenresPresenter.getTopRatedMovie();
     }
 
     @Override
@@ -46,19 +48,19 @@ public class TopRatedMovieFragment extends BaseFragment implements GenresAdapter
     }
 
     @Override
-    public void onGetTopRatedMovieSuccess(List<Genres> genres) {
+    public void onClickGenresListener(Genres genres) {
+        Intent intent = SearchActivity.getIntent(getActivity());
+        startActivity(intent);
+    }
+
+    @Override
+    public void onGenresSuccess(List<Genres> genres) {
         mGenresAdapter.setData(genres);
         mGenresAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onGetTopRatedMovieFailure(String message) {
+    public void onGenresFailure(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onClickGenresListener(Genres genres) {
-        Intent intent = SearchActivity.getIntent(getActivity());
-        startActivity(intent);
     }
 }
