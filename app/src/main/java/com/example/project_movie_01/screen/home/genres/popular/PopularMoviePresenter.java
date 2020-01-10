@@ -11,7 +11,7 @@ public class PopularMoviePresenter implements PopularMovieContract.Presenter,
     private PopularMovieContract.View mView;
     private GenresReponsitory mGenresReponsitory;
 
-    private PopularMoviePresenter(PopularMovieContract.View view, GenresReponsitory genresReponsitory) {
+    public PopularMoviePresenter(PopularMovieContract.View view, GenresReponsitory genresReponsitory) {
         mView = view;
         mGenresReponsitory = genresReponsitory;
     }

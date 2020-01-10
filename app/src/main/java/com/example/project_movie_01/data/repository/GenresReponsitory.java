@@ -25,4 +25,12 @@ public class GenresReponsitory {
     public void getPopularMovieList(MoviesDataSource.OnFetchMovieListener listener) {
         mGenresDataSource.getPopular(listener);
     }
+
+    public void getTopRatedMovieList(MoviesDataSource.OnFetchMovieListener listener) {
+        mGenresDataSource.getTopRatedMovieDataSource(listener);
+    }
+
+    public void getUpComingMovie(MoviesDataSource.OnFetchMovieListener listener) {
+        mGenresDataSource.getTopRatedMovieDataSource(listener);
+    }
 }

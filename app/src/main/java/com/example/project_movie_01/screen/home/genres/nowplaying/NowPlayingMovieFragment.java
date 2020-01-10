@@ -17,7 +17,7 @@ import com.example.project_movie_01.screen.search.SearchActivity;
 import java.util.List;
 
 public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingMovieContract.
-        view, GenresAdapter.OnClickNowPlayingListener {
+        view, GenresAdapter.OnClickGenresListener {
     private RecyclerView mRecyclerNowPlaying;
     private GenresAdapter mGenresAdapter;
     private NowPlayingMoviePresenter mNowPlayingMoviePresenter;
@@ -56,7 +56,7 @@ public class NowPlayingMovieFragment extends BaseFragment implements NowPlayingM
     }
 
     @Override
-    public void onClickNowPlayingListener(Genres nowPlaying) {
+    public void onClickGenresListener(Genres nowPlaying) {
         Intent intent = SearchActivity.getIntent(getActivity());
         startActivity(intent);
     }

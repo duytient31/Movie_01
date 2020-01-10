@@ -18,19 +18,14 @@ import java.util.List;
 public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.NowPlayingViewHolder> {
     private List<Genres> mData;
     private LayoutInflater mLayoutInflater;
-    private OnClickNowPlayingListener mOnClickNowPlayingListener;
-    private OnClickPoplarsListener mOnClickPoplarsListener;
+    private OnClickGenresListener mOnClickGenresListener;
 
     public void setData(List<Genres> data) {
         mData = data;
     }
 
-    GenresAdapter(OnClickPoplarsListener onClickPoplarsListener) {
-        mOnClickPoplarsListener = onClickPoplarsListener;
-    }
-
-    public GenresAdapter(OnClickNowPlayingListener onClickNowPlayingListener) {
-        mOnClickNowPlayingListener = onClickNowPlayingListener;
+    public GenresAdapter(OnClickGenresListener onClickGenresListener) {
+        mOnClickGenresListener = onClickGenresListener;
     }
 
     public GenresAdapter(List<Genres> data) {
@@ -64,8 +59,7 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.NowPlaying
         TextView mTextVoteAverage;
         TextView mTextReleaseDate;
         ImageView mImagePosterPath;
-        Genres mNowPlaying;
-        Genres mPopular;
+        Genres mGenres;
 
         public NowPlayingViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,8 +71,7 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.NowPlaying
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOnClickNowPlayingListener.onClickNowPlayingListener(mNowPlaying);
-                    mOnClickPoplarsListener.onPoplarsClickListener(mPopular);
+                    mOnClickGenresListener.onClickGenresListener(mGenres);
                 }
             });
         }
@@ -102,11 +95,7 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.NowPlaying
         }
     }
 
-    public interface OnClickNowPlayingListener {
-        void onClickNowPlayingListener(Genres nowPlaying);
-    }
-
-    public interface OnClickPoplarsListener {
-        void onPoplarsClickListener(Genres popular);
+    public interface OnClickGenresListener {
+        void onClickGenresListener(Genres genres);
     }
 }
